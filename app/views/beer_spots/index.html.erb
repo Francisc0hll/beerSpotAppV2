@@ -1,0 +1,65 @@
+<h1>BeerSpots</h1>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Qualification</th>
+     
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @beerspots.each do |beerspot| %>
+      <tr>
+        <td><%= beerspot.name %></td>
+        <td><%= beerspot.address %></td>
+        <td><%= beerspot.qualification %></td>
+        
+        <td><%= link_to 'Show', beerspot %></td>
+        <td><%= link_to 'Edit', edit_beer_path(beerspot) %></td>
+        <td><%= link_to 'Destroy', beerspot, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div style='width: 800px;'>  
+    <div id="map" style='width: 800px; height: 400px;'>
+    </div>
+</div>
+
+
+
+<script>
+
+    $(document).on("ready turbolinks:load", function (){
+        console.log("carga el mapa");
+        handler =Gmaps.build('Google');
+        handler.buildMap({ 
+            provider: {}, 
+            internal: {id: 'map'}
+        }, function(){  
+            handler.map.centerOn({lat: -33, lng:-71})
+        markers = handler.addMarkers(<%=raw @hash.to_json %>);
+        });
+
+        // google.maps.event.addListener(handler.getMap(), "click", function(){    
+        //     console.log("hola");
+        // });
+
+        
+        function placeMarker(position, map) {
+        var marker = new google.maps.Marker({
+        position: position,
+        map: map
+        });
+        map.panTo(position);
+        }
+    });
+    
+
+</script>
