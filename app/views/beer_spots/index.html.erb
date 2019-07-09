@@ -26,7 +26,27 @@
     <% end %>
   </tbody>
 </table>
+<br>
+<div id="demo"> 
+</div>
 
+<br>
+<br>
+<form action="">
+<%= form_with(model: @beer_spot, local: true) do |form| %>
+<div id="address2"></div>
+<div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address, id:"bs_address" %>
+  </div>
+<%= link_to "#", class:"btn btn-primary", id: "get_location" do %>          
+<i class="fa fa-map-marker"> </i>        
+<% end %>
+<% end %>
+</form>
+
+<br>
+<br>
 <div style='width: 800px;'>  
     <div id="map" style='width: 800px; height: 400px;'>
     </div>

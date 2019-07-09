@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'locations/get_location'
+  get 'locations/find_address'
   resources :beers
   resources :beer_spots
   devise_for :users

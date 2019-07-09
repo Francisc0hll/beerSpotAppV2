@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_08_012139) do
+ActiveRecord::Schema.define(version: 2019_07_09_185445) do
 
   create_table "beer_spots", force: :cascade do |t|
     t.string "name"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 2019_07_08_012139) do
     t.datetime "updated_at", null: false
     t.string "address"
     t.float "qualification"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_beer_spots_on_user_id"
   end
 
@@ -36,6 +38,15 @@ ActiveRecord::Schema.define(version: 2019_07_08_012139) do
     t.string "qualification"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.integer "beer_spot_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["beer_spot_id"], name: "index_posts_on_beer_spot_id"
   end
 
   create_table "users", force: :cascade do |t|
