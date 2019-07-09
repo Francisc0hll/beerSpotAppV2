@@ -1,7 +1,7 @@
 <h1>BeerSpots</h1>
 
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
@@ -32,16 +32,21 @@
 
 <br>
 <br>
-<form action="">
+
+<form >
 <%= form_with(model: @beer_spot, local: true) do |form| %>
-<div id="address2"></div>
-<div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address, id:"bs_address" %>
+<div class="from-group">
+  <div class="field">
+      <%= form.label :address %>
+      <%= form.text_field :address, id:"bs_address", class:"form-control" %>
   </div>
-<%= link_to "#", class:"btn btn-primary", id: "get_location" do %>          
-<i class="fa fa-map-marker"> </i>        
-<% end %>
+</div>
+<div class="from-group">
+  <%= link_to "#", class:"btn btn-primary", id: "get_location" do %>          
+  <i class="fa fa-map-marker"> </i>        
+  <% end %>
+</div>
+
 <% end %>
 </form>
 
