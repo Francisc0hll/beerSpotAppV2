@@ -17,28 +17,28 @@ $(document).on("ready turbolinks:load", function () {
 
 });
 
-function placeMarker(position, map) {
-    var marker = new google.maps.Marker({
-        position: position,
-        map: map
-    });
-    map.panTo(position);
+// function placeMarker(position, map) {
+//     var marker = new google.maps.Marker({
+//         position: position,
+//         map: map
+//     });
+//     map.panTo(position);
 
-}
+// }
 
 var x = document.getElementById("bs_address");
 
-function getLocation() {
-    if (navigator.geolocation) {
-        console.log("prueba de geo")
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-    x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-}
-function showPosition(position) {
-    x.innerHTML = "Latitude: "+position.coords.latitude+"<br>Longitude:"+position.coords.longitude;
-}
+// function getLocation() {
+//     if (navigator.geolocation) {
+//         console.log("prueba de geo")
+//         navigator.geolocation.getCurrentPosition(showPosition);
+//     } else {
+//     x.innerHTML = "Geolocation is not supported by this browser.";
+//     }
+// }
+// function showPosition(position) {
+//     x.innerHTML = "Latitude: "+position.coords.latitude+"<br>Longitude:"+position.coords.longitude;
+// }
 
 $("#get_location").on('click', function (event) { 
     event.preventDefault(); 
@@ -66,9 +66,9 @@ function getAddress(position) {
     })
         .done(function (data) {
             $('#bs_address').val(data.address);
-            //console.log(data.address)
+            console.log(data.address)
         })
-        .always(function (data) {
+        .always(function (_data) {
             $("#get_location").html('<i class="fa fa-map-marker"> </i>');
         }) 
 };
