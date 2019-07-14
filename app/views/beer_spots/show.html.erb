@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
-
-<p>
+<div class="form-group">
+  <p>
   <strong>Nombre:</strong>
   <%= @beerspot.name %>
 </p>
@@ -15,10 +15,43 @@
   <%= @beerspot.post %>
 </p>
 
+</div>
+
+<h2>Nuevo Comentario</h2>
+    <%= form_with(model: @comment) do |form| %>
+      <div class="from-group">
+        <div class="field">
+            <%= form.label :content %>
+            <%= form.text_area :content, class:"form-control" %>
+        </div>
+       
+      </div>
+      <br>
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+    <% end %>
+
+
 
 <p>
   <strong>Calificacion:</strong>
   <%= @beerspot.qualification %>
 </p>
+
+<div class="row">
+  <h2>Comentarios</h2>
+  <div id = 'listBS'class="col">
+    
+      <ul id= 'comments'>
+      <% @comments.each do |comment| %>
+        <li ><%= comment.content %></li> 
+      <% end %>
+       
+      </ul>
+   
+  </div>
+</div>
+
 
 <%= link_to 'Back', root_path %>

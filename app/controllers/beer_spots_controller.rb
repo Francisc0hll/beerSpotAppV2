@@ -46,6 +46,7 @@ class BeerSpotsController < ApplicationController
 
   def show
     @beerspot = BeerSpot.find(params[:id])
+    @comments = Comment.all
   end
 
   def destroy
