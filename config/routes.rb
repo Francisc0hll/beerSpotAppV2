@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'comments/create'
   get 'locations/get_location'
   get 'locations/find_address'
   resources :beers
