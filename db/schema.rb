@@ -46,8 +46,8 @@ ActiveRecord::Schema.define(version: 2019_07_14_010524) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
-    t.integer "beerSpot_id"
-    t.index ["beerSpot_id"], name: "index_comments_on_beerSpot_id"
+    t.integer "beer_spot_id"
+    t.index ["beer_spot_id"], name: "index_comments_on_beer_spot_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 

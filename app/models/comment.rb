@@ -1,5 +1,5 @@
 class Comment < ApplicationRecord
-   belongs_to :users
-   belongs_to :beerSpots
+   belongs_to :user
+   belongs_to :beer_spot
 
 end

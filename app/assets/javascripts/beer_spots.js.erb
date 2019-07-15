@@ -1,5 +1,8 @@
 $(document).on("ready turbolinks:load", function () {
    
+    
+
+
 
     $("#get_location").click(function (event) {
 
@@ -25,7 +28,7 @@ $(document).on("ready turbolinks:load", function () {
             })
                 .done(function (data) {
                     $('#bs_address').val(data.address);
-                    
+                    console.log(data.address)
                 })
                 .always(function (data) {
                     $("#get_location").html('<i class="fa fa-map-marker"> </i>');

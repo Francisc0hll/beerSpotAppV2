@@ -1,57 +1,61 @@
-<p id="notice"><%= notice %></p>
-<div class="form-group">
-  <p>
-  <strong>Nombre:</strong>
-  <%= @beerspot.name %>
-</p>
+<div class="containerShow">
+      <div class="form-group">
+      <p>
+      <strong>Nombre:</strong>
+      <%= @beerspot.name %>
+    </p>
 
-<p>
-  <strong>Dirección:</strong>
-  <%= @beerspot.address %>
-</p>
+    <p>
+      <strong>Dirección:</strong>
+      <%= @beerspot.address %>
+    </p>
 
-<p>
-  <strong>Post:</strong>
-  <%= @beerspot.post %>
-</p>
+    <p>
+      <strong>Post:</strong>
+      <%= @beerspot.post %>
+    </p>
 
-</div>
+    </div>
 
-<h2>Nuevo Comentario</h2>
-    <%= form_with(model: @comment) do |form| %>
-      <div class="from-group">
-        <div class="field">
-            <%= form.label :content %>
-            <%= form.text_area :content, class:"form-control" %>
-        </div>
-       
+    <h2>Nuevo Comentario</h2>
+        <%= form_with(model: [@beerspot, @comment]) do |form| %>
+          <div class="from-group">
+            <div class="field">
+                <%= form.text_area :content, placeholder: 'Deje su comentario..', id:"text", class:"form-control" %>
+            </div>
+          
+          </div>
+          <br>
+          <div class="actions">
+            <%= form.submit %>
+          </div>
+        <% end %>
+
+
+
+    <p>
+      <strong>Calificacion:</strong>
+      <%= @beerspot.qualification %>
+    </p>
+     <h2>Comentarios</h2>
+    <div class="row">
+     
+      <div id = 'listBS'class="col">
+        
+          <ul id= 'comments'>
+          <% @comments.each do |comment| %>
+           
+            <div id="newComment">
+            <li ><%= comment.content %></li> 
+            </div> 
+             
+          <% end %>
+          
+          </ul>
+      
       </div>
-      <br>
-      <div class="actions">
-        <%= form.submit %>
-      </div>
-    <% end %>
+    </div>
 
 
-
-<p>
-  <strong>Calificacion:</strong>
-  <%= @beerspot.qualification %>
-</p>
-
-<div class="row">
-  <h2>Comentarios</h2>
-  <div id = 'listBS'class="col">
-    
-      <ul id= 'comments'>
-      <% @comments.each do |comment| %>
-        <li ><%= comment.content %></li> 
-      <% end %>
-       
-      </ul>
-   
-  </div>
+    <%= link_to 'Back', root_path %>
 </div>
-
-
-<%= link_to 'Back', root_path %>

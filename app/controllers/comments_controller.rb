@@ -5,24 +5,15 @@ class CommentsController < ApplicationController
   end
   
   def create
-    @comment = Comment.new(comment_params)
-    @comment.user_id = current_user.id
     
-    respond_to do |format|
-      if @comment.save
-        format.html { redirect_to @comment, notice: 'comment was successfully created.' }
-        format.json { render :show, status: :created, location: @comment }
-        format.js{}
-      else
-        format.html { render :new }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
-        format.js{}
-      end
-    end
-
+    @beerspot = BeerSpot.find(params[:beer_spot_id])
+		@comment = Comment.new(content:params[:comment][:content], user: current_user)
+		@comment.beer_spot = @beerspot
+    @comment.save
+    redirect_to @beerspot
   end
 
   def comment_params
       params.require(:comment).permit(:content)
-    end
+  end
 end

@@ -14,6 +14,7 @@ height:100%;
      width:240px;
      color: white;
      margin-bottom: 10px;
+     font-size: 10px;
 
 }
 
@@ -95,4 +96,9 @@ body{
 
 .footer-social{
     margin-top: 10px;;
+}
+
+.containerShow{
+    margin: 1rem;
+    padding: 2rem;
 }
