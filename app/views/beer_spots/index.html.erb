@@ -27,8 +27,7 @@
         </div>
         <br>
         <div class="field">
-          
-          <%= form.text_field :qualification,placeholder: 'Calificación' ,class:"form-control" %>
+            <%= form.number_field :qualification, max: 5 ,min:1 ,placeholder: 'Calificación' ,class:"form-control" %>
         </div>
 
       </div>
@@ -58,7 +57,7 @@
 
     <td style ="text-align: center"><%= beerspot.qualification %></td>
 
-    <td><%= link_to 'Show', beerspot %></td>
+    <td><%= link_to 'Info', beerspot %></td>
 
     </tr>
     <% end %>

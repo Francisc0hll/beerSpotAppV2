@@ -11,7 +11,7 @@ height:100%;
 .listBS{
     overflow:scroll;
      height:300px;
-     width:240px;
+     width:320px;
      color: white;
      margin-bottom: 10px;
      font-size: 10px;
@@ -34,13 +34,13 @@ body{
 
 .sidebar{
     position: absolute;
-    width: 270px;
+    width: 350px;
     height: 83%;
     background: #333;
     color: white;
     outline: 1px solid;
     outline: #eee;
-    padding: 5px;
+    padding: 10px;
     overflow:scroll;
     
 }
@@ -79,7 +79,7 @@ body{
 
 
 .abrir{
-    transform: translateX(270px);
+    transform: translateX(350px);
 }
 
 #footer_area{

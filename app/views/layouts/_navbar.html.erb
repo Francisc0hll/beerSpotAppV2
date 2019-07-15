@@ -10,9 +10,7 @@
        
         <%= link_to "Home", root_path, class:"nav-link" %>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">addBeerSpot</a>
-      </li>
+      
       <li class="nav-item">
         <a class="nav-link" href="#">BeerSpotStore</a>
       </li>
@@ -25,7 +23,7 @@
 
         <div class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink">
         <% if user_signed_in? %>
-                    <a class="nav-item" href="#"><%= current_user.email %></a>
+                    <a class="nav-item " href="#"><%= current_user.email %></a>
                     <%= link_to "Close", destroy_user_session_path , class:"dropdown-item", method: :delete%>
                 <% else %>
                   <%= link_to "Sign in", new_user_session_path , class:"dropdown-item"%>
